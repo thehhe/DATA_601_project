@@ -1,0 +1,41 @@
+Instruction for working with github for the purpose of 601 project
+
+Since we are all working on the same branch, we need to take care of changes that were introduced by other while you have been working on your notebook. Here are the steps with explanation to help you wrap your head around what is going on and that what are doing makes sense.
+
+1. git stash
+
+In case you made changes to files that are already in github, while someone else updated the same file, we need to resolve conflicts between parallel versions of the same file and end up with the one correct version.
+git stash allows you to "put away" your changes so that git thinks that you haven't made any changes.
+Think of it as putting your changes away on a shelf.
+
+2. git pull
+If there are no conflicts between the state of your project and what is on the github server, this command will download the changes to your local machine.
+
+3. git stash pop
+If you ran git stash before, this command will "take your changes off the shelf" and put them back in your, now updated, folder.
+Be careful of conflicts that might occur. You will need to resolve them.
+
+Example of a conflict to be resolved (VSCode allows you to resolve them conveniently):
+
+"cell_type": "code",
+<<<<<<< Updated upstream
+   "execution_count": 105,
+=======
+   "execution_count": 1,
+>>>>>>> Stashed changes
+   "id": "53c97221-46fc-4db2-83bf-39a01ed8fc7e",
+   "id": "55544291",
+
+
+4. git status
+To make sure and figure out how your folder looks in relation to the online version, you can run this command and see what files are to be added, which ones were modified and so on...
+
+5. git add <your file>
+After you have resolved your conflicts, you can freely add files that you created or modified. 
+Think of it as a preparation of the package that will be published online later.
+
+6. git commit -m "<your message>"
+After you've added all the files you modified, you can commit them with an appropriate message (a one sentence description of what you did)
+
+7. git push
+This command publishes your changes in git adn after it is ran successfully, others will be able to see your progress online and download your changes.
